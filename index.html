@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>ABM angular PHP</title>
+	  
+		<!--?php require_once"partes/referencias.php" ;/**/?-->
+		
+
+      <!--script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script-->
+       	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/animacion.css">
+	<!--final de Estilos-->    
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ 	<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+	<script SRC="bower_components/angular-ui-router/release/angular-ui-router.min.js" TYPE="text/javascript"></script>
+	<script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+	<script SRC="bower_components/satellizer/satellizer.min.js" TYPE="text/javascript"></script>
+	<script SRC="bower_components/angular-ui-router/release/angular-ui-router.min.js" TYPE="text/javascript"></script>
+ 	<script SRC="js/app.js" TYPE="text/javascript"></script>
+	<script SRC="js/ngThumb.js" TYPE="text/javascript"></script>
+	
+</head>
+<body ng-app="ABMangularPHP" ng-controller="controlMenu">
+	<!--?php		
+		require_once"partes/barraDeMenu.php";
+	 ?-->
+
+ 
+              <ul class="nav nav-tabs">
+		         <li  class="btn btn-info animated bounceInLeft" >
+		         	<a ui-sref="menu">
+		         		 <span class="glyphicon glyphicon-list-alt">&nbsp;</span>
+		         		 Inicio 
+		         	</a>
+		         </li>
+		         <li class="btn btn-info animated bounceInLeft" >
+		         	<a ui-sref="alta">
+		         		<span class="glyphicon glyphicon-plus-sign">&nbsp;</span>
+		         		Alta
+		         	</a>
+		         </li>
+		         <li  class="btn btn-info animated bounceInLeft" >
+		         	<a ui-sref="grilla"> 
+		         		<span class="glyphicon glyphicon-th" >&nbsp;</span>
+		         			Grilla</a>
+		         		</li>
+		        	<span id="tituloBarra"  class="animated bounceInRight">{{DatoTest}} &nbsp;&nbsp;&nbsp;</span>
+      </ul>
+		
+
+	
+	<div ui-view>
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+	<div class="container">
+		<div class="page-header">
+			<center> <h1>Datos {{DatoTest}}</h1>   </center>    
+		</div>
+		<div class="CajaInicio animated bounceInRight">
+			<form id="FormIngreso" method="post" enctype="multipart/form-data" >
+				
+				<input type="text" name="nombre" ng-model="objeto.atr" placeholder="Ingrese ATR"/>
+				<!--<input type="text" name="edad" ng-model="object.edad" placeholder="Ingrese Edad"/>-->
+				<!--<select name="turno" ng-model="object.tipo" id="selTurno">-->
+       			<!--<option value="perro">Perro</option>-->
+       			<!--<option value="gato">Gato</option>-->
+      			<!--</select>-->
+      			<!--<label>ATR: </label><input type="date" name="fechaNac" ng-model="object.atr" id="atr" />-->
+      			<br>
+      			<br>
+				<!--<label>Sexo:</label></br>-->
+				<!--<input type="radio" name="sexo" ng-model="object.sexo" value="Masculino" ><label>Masculino</label> <br>-->
+				<!--<input type="radio" name="sexo" ng-model="object.sexo" value="Femenino" > <label>Femenino</label><br>-->
+				<br>
+				<br>
+				<input ng-show="!uploader.queue[0]" type="file" nv-file-select uploader="uploader"/>
+
+				<li ng-repeat="item in uploader.queue">
+					<!-- edad del archivo -->
+					Archivo: <span ng-bind="item.file.name"></span><br/>
+					<!-- imagen del archivo -->
+					<div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+	
+					<button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+						<span class="glyphicon glyphicon-trash"></span> Cambiar
+					</button>
+				</li>  
+				<p style="  color: black;">*La foto se actualiza al guardar.</p>
+
+
+				<a class="btn btn-info " name="guardar" ng-click="Guardar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+				<input type="hidden" value="" id="idParaModificar" name="agregar" ng-model="object.id"/>
+				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+			</form>
+		
+
+		</div>
+	</div>
