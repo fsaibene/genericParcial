@@ -17,7 +17,7 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 
 		.state('alta',
 			{url: '/alta',
-			templateUrl: 'vistas/altaMascota.html',
+			templateUrl: 'vistas/altaObjeto.html',
 			controller: 'controlAlta'})
 
 		.state('login',
@@ -27,12 +27,12 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 
 		.state('modificacion',
 			{url: '/modificacion/{id}?:atr:foto',
-			templateUrl: 'vistas/altaMascota.html',
+			templateUrl: 'vistas/altaObjeto.html',
 			controller: 'controlModificacion'})
 
 		.state('grilla',
 			{url: '/grilla',
-			templateUrl: 'vistas/grillaMascotas.html',
+			templateUrl: 'vistas/grillaObjetos.html',
 			controller: 'controlGrilla'});
 		$urlRouterProvider.otherwise('/login');
 	});
