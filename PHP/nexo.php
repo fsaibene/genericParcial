@@ -41,6 +41,7 @@ if(isset($_GET['accion'])){
 				//unlink($rutaVieja);
 				$respuesta->datos->objeto->foto=$rutaNueva;
 			}
+//				var_dump($respuesta->datos->objeto);die();
 			ObjectVO::InsertarObjeto($respuesta->datos->objeto);
 			break;
 		}

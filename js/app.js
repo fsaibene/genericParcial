@@ -86,10 +86,6 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 			$scope.objeto.atr= "fafafa";
 			$scope.objeto.foto="pordefecto.png";
 
-			// $scope.objectVO.edad= "5" ;
-			// $scope.objectVO.tipo= "perro" ;
-			// $scope.objectVO.fechaNacimiento;
-		 	// $scope.objectVO.sexo;
 		 	$scope.cargarfotos = function(nombrefoto){
 
 				var direccion = "fotos/"+nombrefoto;
@@ -104,14 +100,15 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 					$scope.uploader.queue.push(dummi);
 				});
 		  	};
+			// console.log($scope.objeto);
 	  		$scope.cargarfotos($scope.objeto.foto);
 	  		//$scope.foto="fotos/pordefecto.png";
 	  		//$scope.objectVO.foto="fotos/pordefecto.png";
 	  		$scope.uploader.onSuccessItem = function(item, response, status, headers){
-
+				
 				$http.post('PHP/nexo.php', { datos: {accion :"insertar",objeto:$scope.objeto}})
 					.then(function(respuesta) {
-						 // console.log(respuesta.data);
+						 console.log(respuesta);
 						 $state.go("grilla");
 					},function errorCallback(response){
 					console.log(response);});
