@@ -12,6 +12,7 @@ if(isset($_GET['accion'])){
 
 		$respuesta= array();
 		$respuesta['listado']=ObjectVO::TraerTodosLosObjetos();
+//		print_r($respuesta);die();
 		$arrayJson = json_encode($respuesta);
 		echo  $arrayJson;
 	}
@@ -51,8 +52,8 @@ if(isset($_GET['accion'])){
 		case "modificar":{
 			
 			if($respuesta->datos->objeto->foto!="pordefecto.png"){				
-				$rutaVieja="../fotos/".$respuesta->datos->objeto->foto;
-				$rutaNueva=$respuesta->datos->objeto->atributo3.".".PATHINFO($rutaVieja, PATHINFO_EXTENSION);
+//				$rutaVieja="../fotos/".$respuesta->datos->objeto->foto;
+				$rutaNueva=$respuesta->datos->objeto->foto;
 				copy($rutaVieja, "../fotos/".$rutaNueva);
 				//unlink($rutaVieja);
 				$respuesta->datos->objeto->foto=$rutaNueva;

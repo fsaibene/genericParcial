@@ -3,13 +3,14 @@
         <center><h1>ABM - PHP - Angular</h1> </center>
     </div>
         <div class="CajaInicio animated bounceInRight">
-            <h1>Listado de Objetos</h1>
+            <h1>Listado de Objetos
+            </h1>
                 <input type="search" ng-model="buscador" placeholder="Buscar Usuario">
 
                 <table class='table table-hover table-responsive' id="listadoObjetos">
                     <thead>
                         <tr>
-                            <th>  Foto   </th>
+                            <th>  Foto  </th>
                             <th>  Id  </th>
                             <th>  Atr  </th>
                             <th>  BORRAR     </th>
@@ -25,7 +26,7 @@
 
                         <td><button class='btn btn-danger' name='Borrar' ng-click="Borrar(objeto)">   <span class='glyphicon glyphicon-remove-circle'>&nbsp;</span>Borrar</button></td>
                         <!--<td><button class='btn btn-warning' name='Modificar' ui-sref="modificacion({id:mascota.id, edad:mascota.edad, nombre:mascota.nombre, tipo:mascota.tipo,fechaNacimiento:mascota.fechaNacimiento,sexo:mascota.sexo, foto:mascota.foto})"><span class='glyphicon glyphicon-edit'>&nbsp;</span>Modificar</button></td>-->
-                        <td><button class='btn btn-warning' name='Modificar' ui-sref="modificacion({id:objeto.id, atr:objeto.atr, foto: objeto.foto})"><span class='glyphicon glyphicon-edit'>&nbsp;</span>Modificar</button></td>
+                        <td><button class='btn btn-warning' name='Modificar' ui-sref="modificacion({id:objeto.id, atr:objeto.atr, foto:objeto.foto})"><span class='glyphicon glyphicon-edit'>&nbsp;</span>Modificar</button></td>
                     </tr>
                 </table>
                 <div ng-if="resultado.length==0">

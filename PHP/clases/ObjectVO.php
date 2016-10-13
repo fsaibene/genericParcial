@@ -91,8 +91,8 @@ class ObjectVO
 			foto=:foto
 			WHERE id=:id");
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();*/
-		$consulta =$objetoAccesoDato->RetornarConsulta("UPDATE objetos SET atr=:atr, foto=:foto");
-//		$consulta->bindValue(':id',$objeto->id, PDO::PARAM_INT);
+		$consulta =$objetoAccesoDato->RetornarConsulta("UPDATE objetos SET atr=:atr, foto=:foto WHERE id=:id");
+		$consulta->bindValue(':id',$objeto->id, PDO::PARAM_INT);
 		$consulta->bindValue(':atr',$objeto->atr, PDO::PARAM_STR);
 		$consulta->bindValue(':foto',$objeto->foto, PDO::PARAM_STR);
 //			$consulta->bindValue(':apellido', $persona->apellido, PDO::PARAM_STR);

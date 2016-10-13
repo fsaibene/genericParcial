@@ -7,24 +7,24 @@
 
 	$postData = file_get_contents("php://input");
 	$respuesta = json_decode($postData);
-	$correcto = false;
+//print_r($respuesta);die();
+$correcto = false;
 //	$user;
-	$usuarios=Usuario::ToArray();
+$usuarios=Usuario::ToArray();
 
-	foreach($usuarios as $usuario) {
-		if($usuario["correo"]== $respuesta->correo &&  $usuario["clave"]==$respuesta->clave)
-		{
-			$correcto=true;
+foreach($usuarios as $usuario) {
+		if($usuario["correo"]== $respuesta->correo &&  $usuario["clave"]==$respuesta->clave){
+			$correcto = true;
 			$user=$usuario;
 			break;
 		}
 	}
 	if($correcto){
-		$token=Array
-		("exp"=>time()+10000,
-		"id"=>$user["id"],
-		//"pass"=>$user["pass"], No se pasa el pass para no comprometer la cuenta del usuario.
-		"correo"=>$user["correo"]);
+		$token=Array(
+			"exp"=>time()+10000,
+			"id"=>$user["id"],
+			//"pass"=>$user["pass"], No se pasa el pass para no comprometer la cuenta del usuario.
+			"correo"=>$user["correo"]);
 		$token=Firebase\JWT\JWT::encode($token, "LOL123");
 		$array["tokenTest"]=$token;
 		echo json_encode($array);

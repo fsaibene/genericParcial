@@ -55,13 +55,12 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 	 */
 	app.controller('controlLogin', function($scope,$auth,$state) {
 	  	$scope.DatoTest="**Login**";
-		$scope.correo="admin@admin";
-		$scope.clave="123456";
+		// $scope.correo="admin@admin";
+		// $scope.clave="123456";
 		$scope.Login=function()
 		{
 			$auth.login({correo:$scope.correo, clave:$scope.clave})
 			.then(function(respuesta){
-				// console.log(respuesta);
 				if($auth.isAuthenticated()){
 					console.info($auth.isAuthenticated(), $auth.getPayload());
 					$state.go("menu");
@@ -79,16 +78,17 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 	 * controlAlta
 	 */
 	app.controller('controlAlta', function($scope, $http, $state,$auth, FileUploader) {
-	  	if($auth.isAuthenticated()){
-		 	$scope.DatoTest="**alta**";
-		 	//inicio las variables
+		if($auth.isAuthenticated()){
+			$scope.DatoTest="**alta**";
+			//inicio las variables
 		 	$scope.uploader=new FileUploader({url:'PHP/nexo.php'});
-		 	$scope.objeto={};
-		 	$scope.objeto.atr= "puchi" ;
-		 	// $scope.objectVO.edad= "5" ;
-		 	// $scope.objectVO.tipo= "perro" ;
-		 	// $scope.objectVO.foto="pordefecto.png";
-		 	// $scope.objectVO.fechaNacimiento;
+			$scope.objeto={};
+			$scope.objeto.atr= "fafafa";
+			$scope.objeto.foto="pordefecto.png";
+
+			// $scope.objectVO.edad= "5" ;
+			// $scope.objectVO.tipo= "perro" ;
+			// $scope.objectVO.fechaNacimiento;
 		 	// $scope.objectVO.sexo;
 		 	$scope.cargarfotos = function(nombrefoto){
 
@@ -111,7 +111,7 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 
 				$http.post('PHP/nexo.php', { datos: {accion :"insertar",objeto:$scope.objeto}})
 					.then(function(respuesta) {
-						 console.log(respuesta.data);
+						 // console.log(respuesta.data);
 						 $state.go("grilla");
 					},function errorCallback(response){
 					console.log(response);});
@@ -139,10 +139,10 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'angularFileUpload','sat
 			//$http.get("http://www.mocky.io/v2/57c8ab94120000be13e76a92")
 			$http.get('PHP/nexo.php', { params: {accion :"traer"}})
 			.then(function(respuesta) {
+				$scope.listadoObjetos = respuesta.data.listado;
 
-				 $scope.listadoObjetos = respuesta.data.listado;
-				 //$scope.listadoObjetos = respuesta.data;
-				 // console.log(respuesta.data);
+				//$scope.listadoObjetos = respuesta.data;
+				console.log(respuesta.data);
 
 			},function errorCallback(response) {
 					 $scope.listadoObjetos = [];
@@ -185,6 +185,7 @@ app.controller('controlModificacion', function($scope, $http, $state, $statePara
 
 		$http.post('PHP/nexo.php', { datos: {accion :"modificar",objeto:$scope.objeto}})
 		.then(function(respuesta) {
+			console.log(respuesta);
 			$state.go("grilla");
 		},
 		function errorCallback(response){
@@ -200,6 +201,7 @@ app.controller('controlModificacion', function($scope, $http, $state, $statePara
 		$scope.uploader.uploadAll();
 		$http.post('PHP/nexo.php', { datos: {accion :"modificar",objeto:$scope.objeto}})
 		.then(function(respuesta) {
+			console.log(respuesta);
 			$state.go("grilla");
 		},
 		function errorCallback(response){
