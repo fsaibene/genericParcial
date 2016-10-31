@@ -92,7 +92,7 @@
   <property name="lint.done" value="true"/>
  </target>
 
- <target name="phploc"
+ <!-- <target name="phploc"
          unless="phploc.done"
          description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
   <exec executable="${phploc}" taskname="phploc">
@@ -119,7 +119,7 @@
   </exec>
 
   <property name="phploc.done" value="true"/>
- </target>
+ </target> -->
 
  <target name="pdepend"
          unless="pdepend.done"
@@ -162,7 +162,7 @@
   <property name="phpmd.done" value="true"/>
  </target>
 
- <target name="phpcs"
+<!-- <target name="phpcs"
          unless="phpcs.done"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
   <exec executable="${phpcs}" taskname="phpcs">
@@ -191,7 +191,7 @@
   </exec>
 
   <property name="phpcs.done" value="true"/>
- </target>
+ </target> -->
 
  <target name="phpcpd"
          unless="phpcpd.done"
@@ -216,7 +216,7 @@
   <property name="phpcpd.done" value="true"/>
  </target>
 
- <target name="phpunit"
+<!-- <target name="phpunit"
          unless="phpunit.done"
          depends="prepare"
          description="Run unit tests with PHPUnit">
@@ -239,7 +239,7 @@
   </exec>
 
   <property name="phpunit.done" value="true"/>
- </target>
+ </target> -->
 
  <target name="phpdox"
          unless="phpdox.done"
